@@ -22,7 +22,7 @@ public class SuccessfulRegistrationTest {
     ChromeDriver driver;
     String name = RandomStringUtils.randomAlphabetic(6);
     String email = "test@" + RandomStringUtils.randomAlphabetic(6) + ".ru";
-    String password = "RandomStringUtils.randomAlphabetic(6)";
+    String password = RandomStringUtils.randomAlphabetic(6);
 
     @Before
     public void setupDriver() {

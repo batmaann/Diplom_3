@@ -31,6 +31,9 @@ public class LoginPage {
     private By userAlreadyRegistered = By.xpath(".//p[text() = 'Такой пользователь уже существует']");
     private By incorrectPassword = By.xpath(".//p[text() = 'Некорректный пароль']");
 
+
+
+
     //Метод для ввода значения в поле Имя
     public void setFieldName(String name) {
         driver.findElement(fieldName).click();
