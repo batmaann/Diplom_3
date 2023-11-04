@@ -46,6 +46,14 @@ public class MainPage {
     // локатор выбран раздел "начинки"
     private By selectedSectionFilling = By.xpath(".//div[contains(@class, 'tab_tab_type_current')]//span[text() = 'Начинки']");
 
+    //локатор на кнопку "Конструктор"
+    private By buttonConstructor = By.xpath(".//nav//a/p[text() = 'Конструктор']");
+    private By fieldBurger = By.xpath(".//h1[@class = \"text text_type_main-large mb-5 mt-10\"]");
+
+
+
+
+
 
 
 
@@ -92,6 +100,24 @@ public class MainPage {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement button = wait.until(ExpectedConditions.elementToBeClickable(mainButton));
     }
+
+
+    //ожидание надписи Собирите бургер
+    public void waitBurger() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(fieldBurger));
+    }
+
+
+
+    public void clickMainButton() {
+        driver.findElement(mainButton).click();
+    }
+    public void waitMain() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(mainButton));
+    }
+
 
 
 
@@ -144,6 +170,10 @@ public class MainPage {
         mainPage.clickSectionBuns();
         mainPage.waitBuns();
 
+    }
+    //клик по конструктору
+    public void clickButtonConstructor() {
+        driver.findElement(buttonConstructor).click();
     }
 
 
