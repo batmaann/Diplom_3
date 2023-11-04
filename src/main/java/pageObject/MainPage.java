@@ -79,6 +79,9 @@ public class MainPage {
         driver.findElement(accountProfile).click();
     }
 
+
+
+
     public void clickEmailButton() {
         driver.findElement(emailField).click();
     }

@@ -2,24 +2,19 @@ package registrationTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pageObject.LoginPage;
 import pageObject.MainPage;
+import pageObject.ProfilePage;
 import pageObject.RegistorPage;
 
 import java.util.concurrent.TimeUnit;
 
 import static config.AppConfig.APP_URL;
 
-
-public class SuccessfulRegistrationTest {
-
+public class LogoutTest {
     ChromeDriver driver;
     String name = RandomStringUtils.randomAlphabetic(6);
     String email = "test@" + RandomStringUtils.randomAlphabetic(6) + ".ru";
@@ -36,31 +31,18 @@ public class SuccessfulRegistrationTest {
     }
 
 
-
     @Test
-    public void registrationWithValidPassword()  {
+    public void testLogoutPersonalAccount(){
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
-        RegistorPage registerPage = new RegistorPage(driver);
+        ProfilePage profilePage = new ProfilePage(driver);
 
         mainPage.clickAccountButton();
-        WebElement element = driver.findElement(By.xpath(".//div/p/a[@href=\"/register\"]"));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
-        registerPage.waitLoadPage();
-        registerPage.clickButtonRegister();
-        registerPage.register(name,email,password);
+        loginPage.setFieldName("testtestovoch1@test.ru");
+        loginPage.setFieldPassword("1234567");
+        loginPage.clickButtonSignIn();
+        mainPage.clickAccountButton();
+        profilePage.clickButtonExit();
 
     }
-
-    @After
-    public void teardown(){
-        driver.quit();
-
-    }
-
-
-
-
-
-
 }

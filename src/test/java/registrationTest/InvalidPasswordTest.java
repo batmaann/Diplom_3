@@ -16,6 +16,7 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import pageObject.LoginPage;
 import pageObject.MainPage;
+import pageObject.RegistorPage;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -44,12 +45,13 @@ public class InvalidPasswordTest {
     public void registrationWithValidPassword()  {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
+        RegistorPage registorPage = new RegistorPage(driver);
         mainPage.clickAccountButton();
         WebElement element = driver.findElement(By.xpath(".//div/p/a[@href=\"/register\"]"));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
-        loginPage.waitLoadPage();
-        loginPage.clickButtonRegister();
-        loginPage.register(name,email,password);
+        registorPage.waitLoadPage();
+        registorPage.clickButtonRegister();
+        registorPage.register(name,email,password);
         WebElement invalidElement = driver.findElement(By.xpath(".//p[text() = 'Некорректный пароль']"));
         ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", invalidElement);
     }

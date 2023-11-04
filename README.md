@@ -23,8 +23,8 @@
 Задание №3:
 Переход в личный кабинет 
 <blockquote>1 Переход из личного кабинета в конструктор</blockquote>
-<blockquote>Проверь переход по клику на «Конструктор»</blockquote>
-<blockquote>и на логотип Stellar Burgers</blockquote>
+<blockquote>2 Проверь переход по клику на «Конструктор»</blockquote>
+<blockquote>3 и на логотип Stellar Burgers</blockquote>
 Задание №4:
 Выход из аккаунта
 <blockquote>Проверь выход по кнопке «Выйти» в личном кабинете</blockquote>
