@@ -33,6 +33,21 @@ public class MainPage {
 
 
 
+    private By sectionBuns = By.xpath(".//div/span[text() = 'Булки']");
+    //раздел "соусы"
+    private By sectionSauce = By.xpath(".//div/span[text() = 'Соусы']");
+    //раздел "начинки"
+    private By sectionFilling = By.xpath(".//div/span[text() = 'Начинки']");
+
+    //раздел "булки"
+    private By selectedSectionBuns = By.xpath(".//div[contains(@class, 'tab_tab_type_current')]//span[text() = 'Булки']");
+    // локатор выбран раздел "соусы"
+    private By selectedSectionSauce = By.xpath(".//div[contains(@class, 'tab_tab_type_current')]//span[text() = 'Соусы']");
+    // локатор выбран раздел "начинки"
+    private By selectedSectionFilling = By.xpath(".//div[contains(@class, 'tab_tab_type_current')]//span[text() = 'Начинки']");
+
+
+
 
 
 
@@ -73,6 +88,59 @@ public class MainPage {
     public void waitLoadPage() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement button = wait.until(ExpectedConditions.elementToBeClickable(mainButton));
+    }
+
+
+
+
+
+
+    //Метод ожидания перехода к элементу "Соусы"
+    public void waitSauce() {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebElement section = wait.until(ExpectedConditions.visibilityOfElementLocated(selectedSectionSauce));
+    }
+
+    //Метод ожидания перехода к элементу "Начинки"
+    public void waitFilling() {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebElement section = wait.until(ExpectedConditions.visibilityOfElementLocated(selectedSectionFilling));
+    }
+
+    //Метод для клика по разделу "Булки"
+    public void clickSectionBuns() {
+        driver.findElement(sectionBuns).click();
+        waitBuns();
+    }
+
+    //Метод для клика по разделу "Соусы"
+    public void clickSectionSauce() {
+        driver.findElement(sectionSauce).click();
+        waitSauce();
+    }
+
+    //Метод для клика по разделу "Начинки"
+    public void clickSectionFilling() {
+        driver.findElement(sectionFilling).click();
+        waitFilling();
+    }
+
+    //Метод ожидания подсветки раздела булки
+    public void waitBuns() {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebElement section = wait.until(ExpectedConditions.visibilityOfElementLocated(selectedSectionBuns));
+    }
+    public void switchingLogic(){
+        MainPage mainPage = new MainPage(driver);
+        mainPage.clickSectionFilling();
+        mainPage.waitFilling();
+
+        mainPage.clickSectionSauce();
+        mainPage.waitSauce();
+
+        mainPage.clickSectionBuns();
+        mainPage.waitBuns();
+
     }
 
 
