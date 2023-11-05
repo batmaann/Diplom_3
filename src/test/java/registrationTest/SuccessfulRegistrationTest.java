@@ -36,31 +36,26 @@ public class SuccessfulRegistrationTest {
     }
 
 
-
     @Test
-    public void registrationWithValidPassword()  {
+    public void registrationWithValidPassword() {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         RegistorPage registerPage = new RegistorPage(driver);
 
         mainPage.clickAccountButton();
         WebElement element = driver.findElement(By.xpath(".//div/p/a[@href=\"/register\"]"));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
         registerPage.waitLoadPage();
         registerPage.clickButtonRegister();
-        registerPage.register(name,email,password);
+        registerPage.register(name, email, password);
 
     }
 
     @After
-    public void teardown(){
+    public void teardown() {
         driver.quit();
 
     }
-
-
-
-
 
 
 }

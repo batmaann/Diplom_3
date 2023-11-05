@@ -10,6 +10,7 @@ public class MainPage {
     public MainPage(WebDriver webDriver) {
         this.driver = webDriver;
     }
+
     WebDriver driver;
 
     private By mainButton = By.xpath(".//div/header/nav/div[@class]");
@@ -32,7 +33,6 @@ public class MainPage {
     //поле регистрации
 
 
-
     private By sectionBuns = By.xpath(".//div/span[text() = 'Булки']");
     //раздел "соусы"
     private By sectionSauce = By.xpath(".//div/span[text() = 'Соусы']");
@@ -51,51 +51,20 @@ public class MainPage {
     private By fieldBurger = By.xpath(".//h1[@class = \"text text_type_main-large mb-5 mt-10\"]");
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //методы для главной страницы
-
-
-
-
 
     public void clickAccountButton() {
         driver.findElement(accountProfile).click();
     }
 
-
-
-
     public void clickEmailButton() {
         driver.findElement(emailField).click();
     }
+
     public void clickRegisterFieldButton() {
         driver.findElement(registerField).click();
     }
+
     public void waitLoadPage() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement button = wait.until(ExpectedConditions.elementToBeClickable(mainButton));
@@ -108,21 +77,14 @@ public class MainPage {
         WebElement button = wait.until(ExpectedConditions.elementToBeClickable(fieldBurger));
     }
 
-
-
     public void clickMainButton() {
         driver.findElement(mainButton).click();
     }
+
     public void waitMain() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement button = wait.until(ExpectedConditions.elementToBeClickable(mainButton));
     }
-
-
-
-
-
-
 
     //Метод ожидания перехода к элементу "Соусы"
     public void waitSauce() {
@@ -159,7 +121,8 @@ public class MainPage {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         WebElement section = wait.until(ExpectedConditions.visibilityOfElementLocated(selectedSectionBuns));
     }
-    public void switchingLogic(){
+
+    public void switchingLogic() {
         MainPage mainPage = new MainPage(driver);
         mainPage.clickSectionFilling();
         mainPage.waitFilling();
@@ -171,23 +134,10 @@ public class MainPage {
         mainPage.waitBuns();
 
     }
+
     //клик по конструктору
     public void clickButtonConstructor() {
         driver.findElement(buttonConstructor).click();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

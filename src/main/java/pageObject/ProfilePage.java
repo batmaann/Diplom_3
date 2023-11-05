@@ -7,20 +7,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-
 public class ProfilePage {
     public ProfilePage(WebDriver driver) {
         this.driver = driver;
     }
+
     WebDriver driver;
-
-
 
     //локатор на кнопку "Выйти"
     private By buttonExit = By.xpath(".//nav//li/button[text() = 'Выход']");
-
-
-
 
     //методы
     //метод ожидания загрузки страницы
@@ -34,8 +29,5 @@ public class ProfilePage {
         waitLoadPage();
         driver.findElement(buttonExit).click();
     }
-
-
-
 
 }

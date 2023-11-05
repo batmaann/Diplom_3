@@ -25,19 +25,17 @@ public class SwitchToPersonaFieldsTest {
     }
 
     @Test
-    public void switchingFields()  {
+    public void switchingFields() {
         MainPage mainPage = new MainPage(driver);
-         mainPage.switchingLogic();
+        mainPage.switchingLogic();
 
     }
 
     @After
-    public void teardown(){
+    public void teardown() {
         driver.quit();
 
     }
-
-
 
 
 }

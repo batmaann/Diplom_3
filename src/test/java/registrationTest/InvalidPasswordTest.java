@@ -5,20 +5,14 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
-import org.openqa.selenium.chrome.ChromeOptions;
 import pageObject.LoginPage;
 import pageObject.MainPage;
 import pageObject.RegistorPage;
 
-import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import static config.AppConfig.APP_URL;
@@ -40,24 +34,23 @@ public class InvalidPasswordTest {
     }
 
 
-
     @Test
-    public void registrationWithValidPassword()  {
+    public void registrationWithValidPassword() {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         RegistorPage registorPage = new RegistorPage(driver);
         mainPage.clickAccountButton();
         WebElement element = driver.findElement(By.xpath(".//div/p/a[@href=\"/register\"]"));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
         registorPage.waitLoadPage();
         registorPage.clickButtonRegister();
-        registorPage.register(name,email,password);
+        registorPage.register(name, email, password);
         WebElement invalidElement = driver.findElement(By.xpath(".//p[text() = 'Некорректный пароль']"));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", invalidElement);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", invalidElement);
     }
 
     @After
-    public void teardown(){
+    public void teardown() {
         driver.quit();
 
     }
@@ -75,8 +68,6 @@ public class InvalidPasswordTest {
 //
 //        driver = new ChromeDriver(service, options);
 //    }
-
-
 
 
 }

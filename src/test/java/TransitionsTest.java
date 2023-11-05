@@ -1,7 +1,4 @@
-package registrationTest;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -29,10 +26,8 @@ public class TransitionsTest {
 
 
     @Test
-    public void testLogoutPersonalAccount(){
+    public void testLogoutPersonalAccount() {
         MainPage mainPage = new MainPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        ProfilePage profilePage = new ProfilePage(driver);
 
         mainPage.clickAccountButton();
         mainPage.clickButtonConstructor();

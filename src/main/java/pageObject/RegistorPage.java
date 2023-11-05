@@ -10,11 +10,8 @@ public class RegistorPage {
     public RegistorPage(WebDriver driver) {
         this.driver = driver;
     }
+
     WebDriver driver;
-
-
-
-
 
 
     //локатор поле Имя
@@ -28,25 +25,7 @@ public class RegistorPage {
     private By buttonSignIn = By.xpath(".//p/a[text() = 'Войти']");
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     //методы
-
 
 
     //Метод для ввода значения в поле Имя
@@ -54,20 +33,24 @@ public class RegistorPage {
         driver.findElement(fieldName).click();
         driver.findElement(fieldName).sendKeys(name);
     }
+
     //Метод для ввода значения в поле Email
     public void setFieldEmail(String email) {
         driver.findElement(fieldEmail).click();
         driver.findElement(fieldEmail).sendKeys(email);
     }
+
     //Метод для ввода значения в поле Пароль
     public void setFieldPassword(String password) {
         driver.findElement(fieldPassword).click();
         driver.findElement(fieldPassword).sendKeys(password);
     }
+
     //Метод для клика по кнопке "Зарегистрироваться"
     public void clickButtonRegister() {
         driver.findElement(buttonRegister).click();
     }
+
     //Метод для клика по кнопке "Войти"
     public void clickButtonSignIn() {
         driver.findElement(buttonSignIn).click();
@@ -87,35 +70,6 @@ public class RegistorPage {
         setFieldPassword(password);
         clickButtonRegister();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

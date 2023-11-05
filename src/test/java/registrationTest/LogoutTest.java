@@ -8,7 +8,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import pageObject.LoginPage;
 import pageObject.MainPage;
 import pageObject.ProfilePage;
-import pageObject.RegistorPage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -16,9 +15,6 @@ import static config.AppConfig.APP_URL;
 
 public class LogoutTest {
     ChromeDriver driver;
-    String name = RandomStringUtils.randomAlphabetic(6);
-    String email = "test@" + RandomStringUtils.randomAlphabetic(6) + ".ru";
-    String password = RandomStringUtils.randomAlphabetic(6);
 
     @Before
     public void setupDriver() {
@@ -32,7 +28,7 @@ public class LogoutTest {
 
 
     @Test
-    public void testLogoutPersonalAccount(){
+    public void testLogoutPersonalAccount() {
         MainPage mainPage = new MainPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         ProfilePage profilePage = new ProfilePage(driver);
