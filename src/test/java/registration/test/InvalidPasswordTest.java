@@ -1,4 +1,4 @@
-package registrationTest;
+package registration.test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -9,9 +9,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageObject.LoginPage;
-import pageObject.MainPage;
-import pageObject.RegistorPage;
+import page.оbject.LoginPage;
+import page.оbject.MainPage;
+import page.оbject.RegistorPage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,8 +27,6 @@ public class InvalidPasswordTest {
     public void setupDriver() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        MainPage mainPage = new MainPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
         driver.manage().timeouts().implicitlyWait(11, TimeUnit.SECONDS);
         driver.get(APP_URL);
     }
@@ -40,13 +38,11 @@ public class InvalidPasswordTest {
         LoginPage loginPage = new LoginPage(driver);
         RegistorPage registorPage = new RegistorPage(driver);
         mainPage.clickAccountButton();
-        WebElement element = driver.findElement(By.xpath(".//div/p/a[@href=\"/register\"]"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
+        loginPage.findTextRegisterFeild();
         registorPage.waitLoadPage();
         registorPage.clickButtonRegister();
         registorPage.register(name, email, password);
-        WebElement invalidElement = driver.findElement(By.xpath(".//p[text() = 'Некорректный пароль']"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", invalidElement);
+        loginPage.findTextIncorrectPassword();
     }
 
     @After

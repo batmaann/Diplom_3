@@ -3,8 +3,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageObject.LoginPage;
-import pageObject.MainPage;
+import page.оbject.LoginPage;
+import page.оbject.MainPage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,7 +27,14 @@ public class SwitchToPersonaFieldsTest {
     @Test
     public void switchingFields() {
         MainPage mainPage = new MainPage(driver);
-        mainPage.switchingLogic();
+        mainPage.clickSectionFilling();
+        mainPage.waitFilling();
+
+        mainPage.clickSectionSauce();
+        mainPage.waitSauce();
+
+        mainPage.clickSectionBuns();
+        mainPage.waitBuns();
 
     }
 

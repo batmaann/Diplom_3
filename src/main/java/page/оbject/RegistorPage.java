@@ -1,5 +1,6 @@
-package pageObject;
+package page.оbject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,43 +27,42 @@ public class RegistorPage {
 
 
     //методы
-
-
-    //Метод для ввода значения в поле Имя
+    @Step("Шаг по вводу значения в поле Имя")
     public void setFieldName(String name) {
         driver.findElement(fieldName).click();
         driver.findElement(fieldName).sendKeys(name);
     }
 
-    //Метод для ввода значения в поле Email
+    @Step("Шаг ввода значения в поле Email")
     public void setFieldEmail(String email) {
         driver.findElement(fieldEmail).click();
         driver.findElement(fieldEmail).sendKeys(email);
     }
 
-    //Метод для ввода значения в поле Пароль
+    @Step("Шаг ввода значения в поле Пароль")
     public void setFieldPassword(String password) {
         driver.findElement(fieldPassword).click();
         driver.findElement(fieldPassword).sendKeys(password);
     }
 
-    //Метод для клика по кнопке "Зарегистрироваться"
+    @Step("Шаг клика по кнопке \"Зарегистрироваться\"")
     public void clickButtonRegister() {
         driver.findElement(buttonRegister).click();
     }
 
-    //Метод для клика по кнопке "Войти"
+    @Step("Шаг клика по кнопке \"Войти\"")
     public void clickButtonSignIn() {
         driver.findElement(buttonSignIn).click();
     }
 
-    //Метод ожидания загрузки страницы
+    @Step("Шаг ожидания загрузки страницы")
     public void waitLoadPage() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement button = wait.until(ExpectedConditions.elementToBeClickable(buttonRegister));
     }
 
-    //Метод регистрации пользователя
+
+    @Step("Шаг регистрации пользователя")
     public void register(String name, String email, String password) {
         waitLoadPage();
         setFieldName(name);

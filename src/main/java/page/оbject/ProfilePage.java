@@ -1,5 +1,6 @@
-package pageObject;
+package page.оbject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,13 +19,13 @@ public class ProfilePage {
     private By buttonExit = By.xpath(".//nav//li/button[text() = 'Выход']");
 
     //методы
-    //метод ожидания загрузки страницы
+    @Step("Шаг ожидания загрузки страницы")
     public void waitLoadPage() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement field = wait.until(ExpectedConditions.visibilityOfElementLocated(buttonExit));
     }
 
-    //клик по кнопке выйти
+    @Step("клик по кнопке выйти")
     public void clickButtonExit() {
         waitLoadPage();
         driver.findElement(buttonExit).click();

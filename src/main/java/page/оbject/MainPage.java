@@ -1,5 +1,6 @@
-package pageObject;
+package page.оbject;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -53,75 +54,78 @@ public class MainPage {
 
     //методы для главной страницы
 
+    @Step("Шаг клик по элементу аккаунта")
     public void clickAccountButton() {
         driver.findElement(accountProfile).click();
     }
-
+    @Step("Шаг клик по элементу имеил")
     public void clickEmailButton() {
         driver.findElement(emailField).click();
     }
-
+    @Step("Шаг клик по элементу регестрации")
     public void clickRegisterFieldButton() {
         driver.findElement(registerField).click();
     }
-
+    @Step("Шаг по ожидание элемента")
     public void waitLoadPage() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement button = wait.until(ExpectedConditions.elementToBeClickable(mainButton));
     }
 
 
-    //ожидание надписи Собирите бургер
+    @Step("Шаг ожидание надписи Соберите бургер")
     public void waitBurger() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement button = wait.until(ExpectedConditions.elementToBeClickable(fieldBurger));
     }
 
+    @Step("Шаг нажатие кнопки")
     public void clickMainButton() {
         driver.findElement(mainButton).click();
     }
-
+    @Step("Шаг ожидание поля главной")
     public void waitMain() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement button = wait.until(ExpectedConditions.elementToBeClickable(mainButton));
     }
 
-    //Метод ожидания перехода к элементу "Соусы"
+
+    @Step("Шаг для ожидания перехода к элементу \"Соусы\"")
     public void waitSauce() {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         WebElement section = wait.until(ExpectedConditions.visibilityOfElementLocated(selectedSectionSauce));
     }
 
-    //Метод ожидания перехода к элементу "Начинки"
+    @Step("Шаг для ожидания перехода к элементу \"Начинки\"")
     public void waitFilling() {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         WebElement section = wait.until(ExpectedConditions.visibilityOfElementLocated(selectedSectionFilling));
     }
 
-    //Метод для клика по разделу "Булки"
+    @Step("Шаг для клика по разделу \"Булки\"")
     public void clickSectionBuns() {
         driver.findElement(sectionBuns).click();
         waitBuns();
     }
 
-    //Метод для клика по разделу "Соусы"
+    @Step("Шаг для клика по разделу \"Соусы\"")
     public void clickSectionSauce() {
         driver.findElement(sectionSauce).click();
         waitSauce();
     }
 
-    //Метод для клика по разделу "Начинки"
+    @Step("Шаг для клика по разделу \"Начинки\"")
     public void clickSectionFilling() {
         driver.findElement(sectionFilling).click();
         waitFilling();
     }
 
-    //Метод ожидания подсветки раздела булки
+    @Step("Шаг ожидания подсветки раздела булки")
     public void waitBuns() {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         WebElement section = wait.until(ExpectedConditions.visibilityOfElementLocated(selectedSectionBuns));
     }
-
+    @Step("Логика выполнение переключение")
     public void switchingLogic() {
         MainPage mainPage = new MainPage(driver);
         mainPage.clickSectionFilling();
@@ -135,7 +139,7 @@ public class MainPage {
 
     }
 
-    //клик по конструктору
+    @Step("клик по конструктору")
     public void clickButtonConstructor() {
         driver.findElement(buttonConstructor).click();
     }

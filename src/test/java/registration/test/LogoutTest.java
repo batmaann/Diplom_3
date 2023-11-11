@@ -1,13 +1,12 @@
-package registrationTest;
+package registration.test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageObject.LoginPage;
-import pageObject.MainPage;
-import pageObject.ProfilePage;
+import page.оbject.LoginPage;
+import page.оbject.MainPage;
+import page.оbject.ProfilePage;
 
 import java.util.concurrent.TimeUnit;
 
@@ -37,8 +36,9 @@ public class LogoutTest {
         loginPage.setFieldName("testtestovoch1@test.ru");
         loginPage.setFieldPassword("1234567");
         loginPage.clickButtonSignIn();
+        mainPage.waitSauce();//проверка ожидание наличие элементов главной страницы
         mainPage.clickAccountButton();
         profilePage.clickButtonExit();
-
+        mainPage.waitSauce();//проверка ожидание наличие элементов главной страницы
     }
 }
